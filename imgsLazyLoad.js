@@ -10,3 +10,13 @@
     }
 })()
 //Используется data-src вместо src
+
+(async ()=>{
+    for (let node of document.getElementsByTagName('img')) {
+        await new Promise(res=>{
+            node.src=node.dataset.src;
+            node.onload = ()=>res();
+        })
+    }
+})()
+//Используется data-src вместо src
